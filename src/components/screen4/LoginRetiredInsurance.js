@@ -1,28 +1,21 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet,Image} from 'react-native';
-import LoginFormLetter from './LoginForm_Letter'
-import {h,w} from '../../../constants'
+import { View, Text, StyleSheet, Image, Button} from 'react-native';
+import {h,w} from '../../constants'
+import LoginForm from './LoginFormRetiredInsurance'
 
-export default class LoginLetter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
 
-  render() {
+const Login = () => {
     const {container,logoContainer,formContainer,logo} = styles
     return (
-        <View style={container}>
-        <View style={logoContainer}>
-          <Image style={logo} source={require('../../../logo/Logo.png')}/>
-        </View>
-        <View style={formContainer}>
-          <LoginFormLetter/>
-        </View>
-    </View>
+      <View style={container}>
+          <View style={logoContainer}>
+            <Image style={logo} source={require('../../logo/Logo.png')}/>
+          </View>
+          <View style={formContainer}>
+            <LoginForm/>
+          </View>
+      </View>
     );
-  }
 }
 
 const styles = StyleSheet.create({
@@ -54,3 +47,4 @@ const styles = StyleSheet.create({
     }
 });
 
+export default Login

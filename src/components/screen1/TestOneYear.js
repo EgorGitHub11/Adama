@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView} from 'react-native';
-import Video from 'react-native-video';
-import {h,w} from '../../../constants'
-import Header from '../../uikit/Header'
-import  Videos from '../../uikit/Video' 
+import {h,w} from '../../constants'
+import Header from '../uikit/Header'
 
 
 export default class TestOneYearInf extends Component {
@@ -25,7 +23,7 @@ export default class TestOneYearInf extends Component {
           </Text>
         </View>
         </ScrollView>
-        <Videos/>
+        {/* <Videos/> */}
       </View>
     );
   }

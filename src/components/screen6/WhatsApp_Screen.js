@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Linking } from 'react-native';
 
 export default class WhatsApp_Screen extends Component {
   constructor(props) {

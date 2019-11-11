@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet} from 'react-native';
-import {h,w} from '../../../constants'
+import {h,w} from '../../constants'
 
 export default class SplashScreen extends Component {
   UNSAFE_componentWillMount = () => {
     setTimeout(() => {
         this.props.navigation.navigate('Home')
-    }, 6000)
+    }, 3000)
   };
   
 
@@ -15,7 +15,7 @@ export default class SplashScreen extends Component {
     return (
       <View style={mainC}>
         <View>
-            <Image style={logo} source={require('../../../logo/Logo.png')}/>
+            <Image style={logo} source={require('../../logo/Logo.png')}/>
         </View>
       </View>
     );

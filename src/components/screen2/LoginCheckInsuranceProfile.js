@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, Button} from 'react-native';
-import {h,w} from '../../../constants'
-import LoginForm from './LoginFormRetiredInsurance'
+import {h,w} from '../../constants'
+import LoginForm from './LoginFormCheckInsuranceProfile'
 
 
 const Login = () => {
@@ -9,7 +9,7 @@ const Login = () => {
     return (
       <View style={container}>
           <View style={logoContainer}>
-            <Image style={logo} source={require('../../../logo/Logo.png')}/>
+            <Image style={logo} source={require('../../logo/Logo.png')}/>
           </View>
           <View style={formContainer}>
             <LoginForm/>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Button, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Image, Picker} from 'react-native';
-import Loader from '../../uikit/Loader'
+// import Loader from '../uikit/Loader'
 
 export default class LoginFormRetiredInsurance extends Component {
   constructor(props) {

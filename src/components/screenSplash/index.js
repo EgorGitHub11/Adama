@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 
 import { createAppContainer,createSwitchNavigator } from 'react-navigation';
 
-import HomeScreenRoute from '../index'
+import HomeScreenRoute from '../screenHome/index'
 import SplashScreen from './SplashScreen'
 
 export default class index extends Component {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import {h,w} from '../../../constants'
-import Header from '../../uikit/Header'
+import {h,w} from '../../constants'
+import Header from '../uikit/Header'
 
 const AboutInformation = () => {
     const { text,container,textBlock } = styles

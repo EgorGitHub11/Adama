@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, StatusBar, TouchableOpacity, Button} from 'react-native';
+
 import Header from '../uikit/Header'
 import About from '../uikit/About'
 import MyRetiredInsurance from '../uikit/MyRetiredInsurance'
 import TestOneYear from '../uikit/TestOneYear'
 import CheckInsuranceProfile from '../uikit/CheckInsuranceProfile'
-import Call from '../uikit/call'
-import PhoneNumber from '../uikit/PhoneNumber'
+import PhoneNumber from '../screen5/PhoneNumber'
 import WhatsApp from '../uikit/WhatsApp'
 import Letter from '../uikit/Letter'
 
