@@ -4,7 +4,7 @@ import {h,w} from '../../constants'
 import LoginForm from './LoginFormCheckInsuranceProfile'
 
 
-const Login = () => {
+const Login = (props) => {
     const {container,logoContainer,formContainer,logo} = styles
     return (
       <View style={container}>
@@ -12,7 +12,7 @@ const Login = () => {
             <Image style={logo} source={require('../../logo/Logo.png')}/>
           </View>
           <View style={formContainer}>
-            <LoginForm/>
+            <LoginForm  navigation={props.navigation}/> 
           </View>
       </View>
     );

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Button, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView} from 'react-native';
+import { View, Button, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, ActivityIndicator} from 'react-native';
 
 
 export default class LoginFormCheckInsuranceProfile extends Component {
@@ -10,9 +10,12 @@ export default class LoginFormCheckInsuranceProfile extends Component {
       passportId: "",
       dateIssue: "",
       phoneNumber: "",
+      loading:false
     }
   }
+   
 
+  
   async onFetchCheck(){
     var data = {
         passportId: this.state.passportId,
@@ -27,22 +30,22 @@ export default class LoginFormCheckInsuranceProfile extends Component {
               headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
-              },  
+              }, 
               body: JSON.stringify(data)
               }
     );
     if (response.status >= 200 && response.status < 300) {
-          setTimeout( () => {
-            alert('Succsessfull!')
+           setTimeout( () => {
+             alert('Done!')
+            this.props.navigation.navigate('Home')
           },1000)
     }
     } catch (errors) {
         alert(errors);
       } 
    }
-  
+
   render() {
-    const {navigation} = this.props
     const {input, container, buttonContainer, buttonText, title} = styles
     return (
       <KeyboardAvoidingView behavior="padding" style={container}>
@@ -70,7 +73,7 @@ export default class LoginFormCheckInsuranceProfile extends Component {
           ref={(input) => this.phoneInput = input}
           style={input}/>
 
-          <TouchableOpacity onPress={this.onFetchCheck} 
+          <TouchableOpacity onPress={this.onFetchCheck}
           style={buttonContainer}>
             <Text style={buttonText}>
             סיים

@@ -18,7 +18,7 @@ export default class LoginLetter extends Component {
           <Image style={logo} source={require('../../logo/Logo.png')}/>
         </View>
         <View style={formContainer}>
-          <LoginFormLetter/>
+          <LoginFormLetter navigation={this.props.navigation}/>
         </View>
     </View>
     );

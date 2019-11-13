@@ -5,7 +5,7 @@ import { createAppContainer,createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 
-import LoginRetiredInsurance from '../screen4/LoginRetiredInsurance'
+import LoginRetiredInsurance from './LoginFormRetiredInsurance'
 
 export default class indexTestOneYear extends React.Component {
   render(){
@@ -18,7 +18,7 @@ export default class indexTestOneYear extends React.Component {
 
 const RootStack = createStackNavigator(
     {
-        LoginRetiredInsurance:LoginRetiredInsurance
+        LoginRetiredInsurance:LoginRetiredInsurance,
     },
     {
       headerMode: 'none',

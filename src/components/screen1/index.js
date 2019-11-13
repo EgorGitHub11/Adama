@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
-import { createAppContainer,createSwitchNavigator } from 'react-navigation';
+import { createAppContainer} from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack';
 
 
@@ -18,7 +18,7 @@ export default class indexTestOneYear extends React.Component {
 
 const RootStack = createStackNavigator(
     {
-      TestOneYearInf:TestOneYearInf
+      TestOneYearInf:TestOneYearInf,
     },
     {
       headerMode: 'none',

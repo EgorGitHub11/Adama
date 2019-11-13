@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ActivityIndicator} from 'react-native';
 
 export default class Loader extends Component {
   constructor(props) {
@@ -11,7 +11,7 @@ export default class Loader extends Component {
   render() {
     return (
       <View>
-        <Text> Loader </Text>
+        <ActivityIndicator size="large" color="#00ff00"/>
       </View>
     );
   }

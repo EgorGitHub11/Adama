@@ -32,6 +32,7 @@ export default class LoginFormLetter extends Component {
     if (response.status >= 200 && response.status < 300) {
           setTimeout( () => {
             console.log(response)
+            this.props.navigation.navigate('HomeScreen')
             alert('Succsessfull!')
           },1000)
     }

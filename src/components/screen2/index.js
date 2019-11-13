@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
-import { createAppContainer,createSwitchNavigator } from 'react-navigation';
+import {createAppContainer} from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
-
-import Home from '../screenHome/HomeScreen'
-import CheckInsuransProfileInf from '../screen2/LoginCheckInsuranceProfile'
+import CheckInsuransProfileInf from './LoginCheckInsuranceProfile'
 
 export default class indexTestOneYear extends React.Component {
   render(){
@@ -19,8 +17,7 @@ export default class indexTestOneYear extends React.Component {
 
 const RootStack = createStackNavigator(
     {
-        Home: Home,
-        CheckInsuransProfileInf:CheckInsuransProfileInf
+        CheckInsuransProfileInf:CheckInsuransProfileInf,
     },
     {
       headerMode: 'none',

@@ -38,6 +38,7 @@ export default class LoginFormRetiredInsurance extends Component {
       if (response.status >= 200 && response.status < 300) {
           setTimeout( () => {
             alert('sucsessfully!')
+            this.props.navigation.navigate('HomeScreen')
           },3000)
       }
       } catch (errors) {

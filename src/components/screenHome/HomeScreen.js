@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, StatusBar, TouchableOpacity, Button} from 'react-native';
+import { View, Text, StyleSheet, StatusBar, TouchableOpacity, Button, Linking} from 'react-native';
+import call from 'react-native-phone-call'
 
 import Header from '../uikit/Header'
 import About from '../uikit/About'
@@ -9,6 +10,25 @@ import CheckInsuranceProfile from '../uikit/CheckInsuranceProfile'
 import PhoneNumber from '../screen5/PhoneNumber'
 import WhatsApp from '../uikit/WhatsApp'
 import Letter from '../uikit/Letter'
+
+
+
+const openWhatsApp = (url) => {
+   url = 'http://qaru.site/questions/240486/react-native-open-links-in-browser'
+  return(
+    Linking.openURL(url).catch(err => console.error('An error occurred', err))
+  )
+}
+
+const openPhoneNumber = (args) => {
+  args = {
+    number: '077-9985020',
+    prompt: false 
+  }
+  return( 
+    call(args).catch(console.error)
+  )
+}
 
 
 const HomeScreen = (props) => {  
@@ -36,11 +56,11 @@ const HomeScreen = (props) => {
             </TouchableOpacity>
         </View>
               <View style={bottomContainer}>
-                <TouchableOpacity onPress={() => props.navigation.navigate('Call')}>
+                <TouchableOpacity onPress={openPhoneNumber}>
                   <PhoneNumber/>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => props.navigation.navigate('WhatsApp')}>
+                <TouchableOpacity onPress={openWhatsApp}>
                   <WhatsApp/>
                 </TouchableOpacity>
 

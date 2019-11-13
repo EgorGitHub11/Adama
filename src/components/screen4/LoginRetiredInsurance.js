@@ -7,12 +7,12 @@ import LoginForm from './LoginFormRetiredInsurance'
 const Login = () => {
     const {container,logoContainer,formContainer,logo} = styles
     return (
-      <View style={container}>
+       <View style={container}>
           <View style={logoContainer}>
             <Image style={logo} source={require('../../logo/Logo.png')}/>
           </View>
           <View style={formContainer}>
-            <LoginForm/>
+            <LoginForm navigation={props.navigation}/> 
           </View>
       </View>
     );
