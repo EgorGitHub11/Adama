@@ -8,7 +8,7 @@ const About = () =>{
     return (
       <View style={styles.container}>
         <View style={styles.icon}>{myIcon}</View>
-        <Text style={styles.text}>מי אנחנו "אדמה ניהול הסדרים "</Text>
+        <Text style={styles.text}>מי אנחנו "אדמה ניהול הסדרים"</Text>
       </View>
     );
 }

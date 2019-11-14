@@ -8,7 +8,7 @@ const CheckInsuranceProfile = () => {
     return (
       <View style={styles.container}>
         <View style={styles.icon}>{myIcon}</View>
-        <Text style={styles.text}> בדיקת תיק ביטוח</Text>
+        <Text style={styles.text}>בדיקת תיק ביטוחי</Text>
       </View>
     );
 }

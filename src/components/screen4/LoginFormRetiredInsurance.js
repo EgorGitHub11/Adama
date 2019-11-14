@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { View, Button, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Image, Picker} from 'react-native';
-// import Loader from '../uikit/Loader'
+import { View, Button, Linking, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Image, Picker} from 'react-native';
 
 export default class LoginFormRetiredInsurance extends Component {
   constructor(props) {
     super(props)
     this.onFetchLoginRecords = this.onFetchLoginRecords.bind(this)
+    this.signInLink = this.signInLink.bind(this)
     this.state = {
        name: "",
        surname: "",
@@ -14,6 +14,13 @@ export default class LoginFormRetiredInsurance extends Component {
        phoneNumber: ""
     };
   };
+
+  signInLink = (url) => {
+    url = 'https://cloud.atidsm.co.il/AtidNet/AdamaNET/Login.aspx?ReturnUrl=%2fAtidNet%2fAdamaNET%2f'
+   return(
+     Linking.openURL(url).catch(err => console.error('An error occurred', err))
+   )
+  }
 
      async onFetchLoginRecords(){
       var data = {
@@ -37,9 +44,8 @@ export default class LoginFormRetiredInsurance extends Component {
       );
       if (response.status >= 200 && response.status < 300) {
           setTimeout( () => {
-            alert('sucsessfully!')
-            this.props.navigation.navigate('HomeScreen')
-          },3000)
+            this.signInLink()
+          },1000)
       }
       } catch (errors) {
      
