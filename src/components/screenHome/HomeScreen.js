@@ -13,11 +13,16 @@ import Letter from '../uikit/Letter'
 
 
 
-const openWhatsApp = (url) => {
-   url = 'http://qaru.site/questions/240486/react-native-open-links-in-browser'
-  return(
-    Linking.openURL(url).catch(err => console.error('An error occurred', err))
-  )
+const openWhatsApp = (url,celNumber) => {
+  celNumber = '+972585648883'
+  url = `whatsapp://send?phone= ${celNumber}`;
+  Linking.canOpenURL(url).then(supported => {
+    if (supported) {
+        Linking.openURL(url);
+    } else {
+        alert('WhatsApp is not installed')
+    }
+});
 }
 
 const openPhoneNumber = (args) => {

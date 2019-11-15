@@ -8,10 +8,7 @@ const WhatsApp = (props) =>{
     return (
       <View>
         <View style={icon}>
-        <Image
-          style={{width: 50, height: 50}}
-          source={{uri: 'https://img.icons8.com/color/48/000000/whatsapp.png'}}
-        />
+        <Image style={styles.logo} source={require('../screen6/iconWhatsApp.png')}/>
         </View>
       </View>
     );
@@ -20,6 +17,10 @@ const WhatsApp = (props) =>{
  const styles = StyleSheet.create({
   icon:{
     marginBottom:15
+  },
+  logo:{
+    height:50,
+    width:50
   }
  });
 

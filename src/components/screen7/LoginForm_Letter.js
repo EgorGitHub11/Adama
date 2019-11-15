@@ -8,7 +8,17 @@ export default class LoginFormLetter extends Component {
     this.onFetchLetter = this.onFetchLetter.bind(this)
     this.state={
       name: "",
-      phoneNumber: ""
+      phoneNumber: "",
+      errors: {},
+    }
+  }
+
+  handleValidation(){
+    let errors = {} 
+    let fieldName = this.state.name
+    
+    if(fieldName === null){
+        alert('Input cant be empty')
     }
   }
 
@@ -53,7 +63,7 @@ export default class LoginFormLetter extends Component {
 
           <TextInput 
           onChangeText={text => this.setState({ phoneNumber: text })}
-          placeholder='טלפון '
+          placeholder='טלפו'
           style={input}/>
 
           <TouchableOpacity onPress={this.onFetchLetter}

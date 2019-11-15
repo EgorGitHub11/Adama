@@ -5,7 +5,7 @@ import { createAppContainer,createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 
-import LoginRetiredInsurance from './LoginFormRetiredInsurance'
+import LoginRetiredInsurance from './LoginRetiredInsurance'
 
 export default class indexTestOneYear extends React.Component {
   render(){

@@ -61,32 +61,32 @@ export default class LoginFormRetiredInsurance extends Component {
         <Text style={title}>ל מנת להמשיך את התהליך יש להזין:</Text>
         <ScrollView>
           <TextInput 
-          placeholder='*שם פרטי'
+          placeholder='שם פרטי'
           onChangeText={text => this.setState({ name: text })}
           onSubmitEditing={() => this.dateInput.focus()}
           style={input}/>
 
           <TextInput 
-          placeholder='*שם משפחה'
+          placeholder='שם משפחה'
           onChangeText={text => this.setState({ surname: text })}
           onSubmitEditing={() => this.phoneInput.focus()}
           ref={(input) => this.dateInput = input}
           style={input}/>
 
           <TextInput 
-          placeholder='*ת"ז'
+          placeholder='ת"ז'
           onChangeText={text => this.setState({ passportId: text })}
           ref={(input) => this.phoneInput = input}
           style={input}/>
 
           <TextInput 
-          placeholder='*תאריך הנפקה ת"ז'
+          placeholder="תאריך הנפקה ת''ז"
           onChangeText={text => this.setState({ dateIssue: text })}
           ref={(input) => this.phoneInput = input}
           style={input}/>
 
           <TextInput 
-          placeholder='*טלפון'
+          placeholder='טלפון'
           onChangeText={text => this.setState({ phoneNumber: text })}
           ref={(input) => this.phoneInput = input}
           style={input}/>
@@ -97,7 +97,7 @@ export default class LoginFormRetiredInsurance extends Component {
            onPress={this.onFetchLoginRecords}  
           style={buttonContainer}>
             <Text style={buttonText}>
-               כניסה 
+            כניסה
             </Text>
           </TouchableOpacity>
         </ScrollView>

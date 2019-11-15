@@ -52,7 +52,7 @@ export default class LoginFormCheckInsuranceProfile extends Component {
          <Text style={title}>על מנת להמשיך את התהליך יש להזין:</Text>
         <ScrollView>
           <TextInput 
-          placeholder= '*מספר ת"ז'
+          placeholder= 'מספר ת"ז'
           onChangeText={text => this.setState({ passportId: text })}
           onSubmitEditing={() => this.dateInput.focus()}
           onChangeText={
@@ -61,14 +61,14 @@ export default class LoginFormCheckInsuranceProfile extends Component {
           style={input}/>
 
           <TextInput 
-          placeholder='*תאריך הנפקה של ת"'
+          placeholder='תאריך הנפקה של ת"ז'
           onChangeText={text => this.setState({ dateIssue: text })}
           onSubmitEditing={() => this.phoneInput.focus()}
           ref={(input) => this.dateInput = input}
           style={input}/>
 
           <TextInput 
-          placeholder=' *מספר טלפו'
+          placeholder='מספר טלפו'
           onChangeText={text => this.setState({ phoneNumber: text })}
           ref={(input) => this.phoneInput = input}
           style={input}/>
