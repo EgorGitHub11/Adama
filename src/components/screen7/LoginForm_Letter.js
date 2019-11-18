@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { View, Button, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView} from 'react-native';
-
+import { View, Button, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, ActivityIndicator} from 'react-native';
 
 export default class LoginFormLetter extends Component {
   constructor(props){
@@ -9,16 +8,7 @@ export default class LoginFormLetter extends Component {
     this.state={
       name: "",
       phoneNumber: "",
-      errors: {},
-    }
-  }
-
-  handleValidation(){
-    let errors = {} 
-    let fieldName = this.state.name
-    
-    if(fieldName === null){
-        alert('Input cant be empty')
+      loader: false
     }
   }
 
@@ -41,8 +31,6 @@ export default class LoginFormLetter extends Component {
     );
     if (response.status >= 200 && response.status < 300) {
           setTimeout( () => {
-            console.log(response)
-            this.props.navigation.navigate('HomeScreen')
             alert('Succsessfull!')
           },1000)
     }
@@ -50,6 +38,7 @@ export default class LoginFormLetter extends Component {
         alert(errors);
       } 
    }
+
 
   render() {
     const {input, container, buttonContainer, buttonText, title} = styles
@@ -66,7 +55,7 @@ export default class LoginFormLetter extends Component {
           placeholder='טלפו'
           style={input}/>
 
-          <TouchableOpacity onPress={this.onFetchLetter}
+          <TouchableOpacity onPress={this.handleLoader}
           style={buttonContainer}>
             <Text style={buttonText}>
             צרו איתי קשר

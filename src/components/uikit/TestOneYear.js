@@ -4,7 +4,7 @@ import {h,w} from '../../constants'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 const myIcon = <Icon name="done" size={60} color="#528156" />;
 
-const TestOneYear = (onPress) => {
+const TestOneYear = () => {
     return (
         <View style={styles.container}>
           <View style={styles.icon}>{myIcon}</View>

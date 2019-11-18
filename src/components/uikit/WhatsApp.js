@@ -3,7 +3,7 @@ import { View, Text, StyleSheet , Image} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 const myIcon = <Icon name="face" size={40} color="#528156" />;
 
-const WhatsApp = (props) =>{
+const WhatsApp = () =>{
     const { icon } = styles
     return (
       <View>

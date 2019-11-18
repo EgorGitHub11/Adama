@@ -3,6 +3,15 @@ import { View, Text, Image, StyleSheet} from 'react-native';
 import {h,w} from '../../constants'
 
 export default class SplashScreen extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       
+    };
+  };
+  
+
   UNSAFE_componentWillMount = () => {
     setTimeout(() => {
         this.props.navigation.navigate('Home')
