@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { View, Button, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, ActivityIndicator} from 'react-native';
-
+import { View, Button, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, ActivityIndicator, Keyboard, ToastAndroid} from 'react-native';
 
 export default class LoginFormCheckInsuranceProfile extends Component {
   constructor(props){
     super(props)
     this.onFetchCheck = this.onFetchCheck.bind(this)
+    this.validate = this.validate.bind(this)
     this.state={
       passportId: "",
       dateIssue: "",
@@ -13,8 +13,11 @@ export default class LoginFormCheckInsuranceProfile extends Component {
     }
   }
    
-   
+
+  
+  
   async onFetchCheck(){
+
     var data = {
         passportId: this.state.passportId,
         dateIssue: this.state.dateIssue,
@@ -34,13 +37,25 @@ export default class LoginFormCheckInsuranceProfile extends Component {
     );
     if (response.status >= 200 && response.status < 300) {
            setTimeout( () => {
-             alert('Done!')
+            //  this.props.navigation.navigate('Home')
           },1000)
     }
     } catch (errors) {
         alert(errors);
       } 
    }
+
+   validate (){
+    //include your validation inside if condition
+    if (this.state.passportId.length != 0 && this.state.dateIssue.length != 0, this.state.phoneNumber.length != 0) {
+       ToastAndroid.show("Success", ToastAndroid.SHORT)
+       return this.onFetchCheck()
+      } 
+    else {
+        Keyboard.dismiss();
+        ToastAndroid.show("Empty field, try again", ToastAndroid.SHORT)
+    }
+}
 
   render() {
     const {input, container, buttonContainer, buttonText, title} = styles
@@ -70,7 +85,7 @@ export default class LoginFormCheckInsuranceProfile extends Component {
           ref={(input) => this.phoneInput = input}
           style={input}/>
 
-          <TouchableOpacity onPress={this.onFetchCheck}
+          <TouchableOpacity onPress={this.validate}
           style={buttonContainer}>
             <Text style={buttonText}>
             סיים

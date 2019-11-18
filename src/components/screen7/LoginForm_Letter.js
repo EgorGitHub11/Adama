@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { View, Button, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, ActivityIndicator} from 'react-native';
+import { View, Button, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, ActivityIndicator,Keyboard,ToastAndroid} from 'react-native';
 
 export default class LoginFormLetter extends Component {
   constructor(props){
     super(props)
     this.onFetchSubmit = this.onFetchSubmit.bind(this)
+    this.validate = this.validate.bind(this)
     this.state={
       name: "",
       phoneNumber: "",
@@ -32,7 +33,6 @@ export default class LoginFormLetter extends Component {
     );
     if (response.status >= 200 && response.status < 300) {
            setTimeout( () => {
-             alert('Done!')
           },1000)
     }
     } catch (errors) {
@@ -40,6 +40,17 @@ export default class LoginFormLetter extends Component {
       } 
    }
 
+   validate (){
+    //include your validation inside if condition
+    if (this.state.name.length != 0 && this.state.phoneNumber.length != 0) {
+       ToastAndroid.show("Success", ToastAndroid.SHORT)
+       return this.onFetchSubmit()
+      } 
+    else {
+        Keyboard.dismiss();
+        ToastAndroid.show("Empty field, try again", ToastAndroid.SHORT)
+    }
+}
 
   render() {
     const {input, container, buttonContainer, buttonText, title} = styles
@@ -56,7 +67,7 @@ export default class LoginFormLetter extends Component {
           placeholder='טלפו'
           style={input}/>
 
-          <TouchableOpacity onPress={this.handleLoader}
+          <TouchableOpacity onPress={this.validate}
           style={buttonContainer}>
             <Text style={buttonText}>
             צרו איתי קשר

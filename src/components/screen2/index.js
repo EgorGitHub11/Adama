@@ -6,6 +6,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import CheckInsuransProfileInf from './LoginCheckInsuranceProfile'
 
+
 export default class indexTestOneYear extends React.Component {
   render(){
     return (

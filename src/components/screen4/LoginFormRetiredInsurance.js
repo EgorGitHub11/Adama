@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { View, Button, Linking, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Image, Picker} from 'react-native';
+import { View, Button, Linking, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Image, ToastAndroid, Keyboard} from 'react-native';
 
 export default class LoginFormRetiredInsurance extends Component {
   constructor(props) {
     super(props)
     this.onFetchLoginRecords = this.onFetchLoginRecords.bind(this)
     this.signInLink = this.signInLink.bind(this)
+    this.validate = this.validate.bind(this)
     this.state = {
        name: "",
        surname: "",
@@ -53,6 +54,17 @@ export default class LoginFormRetiredInsurance extends Component {
       } 
      }
 
+     validate (){
+      //include your validation inside if condition
+      if (this.state.name.length != 0 && this.state.phoneNumber.length != 0, this.state.passportId.length != 0, this.state.dateIssue.length != 0, this.state.surname.length != 0) {
+         ToastAndroid.show("Success", ToastAndroid.SHORT)
+         return this.onFetchLoginRecords()
+        } 
+      else {
+          Keyboard.dismiss();
+          ToastAndroid.show("Empty field, try again", ToastAndroid.SHORT)
+      }
+  }
 
   render() {
     const {input, container, buttonContainer, buttonText, title} = styles
@@ -94,7 +106,7 @@ export default class LoginFormRetiredInsurance extends Component {
     
 
           <TouchableOpacity
-           onPress={this.onFetchLoginRecords}  
+           onPress={this.validate}  
           style={buttonContainer}>
             <Text style={buttonText}>
             כניסה

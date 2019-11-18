@@ -12,7 +12,7 @@ const Login = (props) => {
             <Image style={logo} source={require('../../logo/Logo.png')}/>
           </View>
           <View style={formContainer}>
-            <LoginForm  navigation={props.navigation}/> 
+            <LoginForm navigation={props.navigation}/> 
           </View>
       </View>
     );
