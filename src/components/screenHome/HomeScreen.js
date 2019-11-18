@@ -10,6 +10,7 @@ import WhatsApp from '../uikit/WhatsApp'
 import Letter from '../uikit/Letter'
 
 import {openPhoneNumber, openWhatsApp} from '../../constants'
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 

@@ -10,12 +10,10 @@ export default class LoginFormCheckInsuranceProfile extends Component {
       passportId: "",
       dateIssue: "",
       phoneNumber: "",
-      loading:false
     }
   }
    
-
-  
+   
   async onFetchCheck(){
     var data = {
         passportId: this.state.passportId,

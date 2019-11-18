@@ -4,15 +4,16 @@ import { View, Button, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView
 export default class LoginFormLetter extends Component {
   constructor(props){
     super(props)
-    this.onFetchLetter = this.onFetchLetter.bind(this)
+    this.onFetchSubmit = this.onFetchSubmit.bind(this)
     this.state={
       name: "",
       phoneNumber: "",
-      loader: false
     }
   }
 
-  async onFetchLetter(){
+
+
+  async onFetchSubmit(){
     var data = {
         name: this.state.name,
         phoneNumber: this.state.phoneNumber
@@ -25,13 +26,13 @@ export default class LoginFormLetter extends Component {
               headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
-              },  
+              }, 
               body: JSON.stringify(data)
               }
     );
     if (response.status >= 200 && response.status < 300) {
-          setTimeout( () => {
-            alert('Succsessfull!')
+           setTimeout( () => {
+             alert('Done!')
           },1000)
     }
     } catch (errors) {

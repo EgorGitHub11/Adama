@@ -5,14 +5,15 @@ const win = Dimensions.get('window')
 export const h = win.height
 export const w = win.width
 
-export const openWhatsApp = (url,celNumber) => {
+export const openWhatsApp = (url,celNumber,playMarketUrl) => {
     celNumber = '+972585648883'
+    playMarketUrl = "market://details?id=com.whatsapp" 
     url = `whatsapp://send?phone= ${celNumber}`;
     Linking.canOpenURL(url).then(supported => {
       if (supported) {
           Linking.openURL(url);
       } else {
-          alert('WhatsApp is not installed')
+        Linking.openURL(playMarketUrl);
       }
   });
   }
