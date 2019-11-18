@@ -6,11 +6,11 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 
 import HomeScreen from './HomeScreen'
-import CheckInsuranceForm from '../screen2/index' 
-import RetiredInsuranceForm from '../screen4/index'
-import AboutInformation from '../screen3/index'
-import TestOneYearInf from '../screen1/index'
-import LetterForm from '../screen7/index'
+import CheckInsuranceForm from '../screen2/LoginCheckInsuranceProfile' 
+import RetiredInsuranceForm from '../screen4/LoginRetiredInsurance'
+import AboutInformation from '../screen3/AboutInformation'
+import TestOneYearInf from '../screen1/TestOneYear'
+import LetterForm from '../screen7/Login_Letter'
 
 
 export default class Index extends React.Component {

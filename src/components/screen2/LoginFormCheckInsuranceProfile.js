@@ -37,7 +37,7 @@ export default class LoginFormCheckInsuranceProfile extends Component {
     );
     if (response.status >= 200 && response.status < 300) {
            setTimeout( () => {
-            //  this.props.navigation.navigate('Home')
+             this.props.navigation.navigate('Home')
           },1000)
     }
     } catch (errors) {

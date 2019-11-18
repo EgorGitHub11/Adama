@@ -3,14 +3,7 @@ import { View, Text, StyleSheet,Image} from 'react-native';
 import LoginFormLetter from './LoginForm_Letter'
 import {h,w} from '../../constants'
 
-export default class LoginLetter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
-
-  render() {
+const LoginLetter = (props) => {
     const {container,logoContainer,formContainer,logo} = styles
     return (
         <View style={container}>
@@ -18,11 +11,10 @@ export default class LoginLetter extends Component {
           <Image style={logo} source={require('../../logo/Logo.png')}/>
         </View>
         <View style={formContainer}>
-          <LoginFormLetter/>
+          <LoginFormLetter navigation={props.navigation}/>
         </View>
     </View>
     );
-  }
 }
 
 const styles = StyleSheet.create({
@@ -54,3 +46,4 @@ const styles = StyleSheet.create({
     }
 });
 
+export default LoginLetter

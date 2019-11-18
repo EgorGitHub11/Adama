@@ -33,6 +33,7 @@ export default class LoginFormLetter extends Component {
     );
     if (response.status >= 200 && response.status < 300) {
            setTimeout( () => {
+            this.props.navigation.navigate('Home')
           },1000)
     }
     } catch (errors) {
@@ -41,7 +42,6 @@ export default class LoginFormLetter extends Component {
    }
 
    validate (){
-    //include your validation inside if condition
     if (this.state.name.length != 0 && this.state.phoneNumber.length != 0) {
        ToastAndroid.show("Success", ToastAndroid.SHORT)
        return this.onFetchSubmit()
@@ -63,7 +63,7 @@ export default class LoginFormLetter extends Component {
           style={input}/>
 
           <TextInput 
-          onChangeText={text => this.setState({ phoneNumber: text })}
+         onChangeText={text => this.setState({ phoneNumber: text })}
           placeholder='טלפו'
           style={input}/>
 
