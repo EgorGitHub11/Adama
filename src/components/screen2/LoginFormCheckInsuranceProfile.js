@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Button, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, ActivityIndicator, Keyboard, ToastAndroid} from 'react-native';
+import Toast from 'react-native-tiny-toast'
 
 export default class LoginFormCheckInsuranceProfile extends Component {
   constructor(props){
@@ -16,8 +17,8 @@ export default class LoginFormCheckInsuranceProfile extends Component {
 
   
   
-  async onFetchCheck(){
-
+  async onFetchCheck(toast){
+    toast = Toast.showLoading('Loading...')
     var data = {
         passportId: this.state.passportId,
         dateIssue: this.state.dateIssue,
@@ -37,6 +38,8 @@ export default class LoginFormCheckInsuranceProfile extends Component {
     );
     if (response.status >= 200 && response.status < 300) {
            setTimeout( () => {
+            Toast.hide(toast)
+            Toast.show("הפרטים נקלטו בהצלחה, נציג מהסוכנות יצור קשר תוך 24 שעות")
              this.props.navigation.navigate('Home')
           },1000)
     }
@@ -48,12 +51,11 @@ export default class LoginFormCheckInsuranceProfile extends Component {
    validate (){
     //include your validation inside if condition
     if (this.state.passportId.length != 0 && this.state.dateIssue.length != 0, this.state.phoneNumber.length != 0) {
-       ToastAndroid.show("Success", ToastAndroid.SHORT)
        return this.onFetchCheck()
       } 
     else {
         Keyboard.dismiss();
-        ToastAndroid.show("Empty field, try again", ToastAndroid.SHORT)
+        Toast.show("Empty field, try again")
     }
 }
 

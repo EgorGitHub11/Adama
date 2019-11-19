@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Button, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, ActivityIndicator,Keyboard,ToastAndroid} from 'react-native';
+import { View, Button, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, ActivityIndicator,Keyboard} from 'react-native';
+import Toast from 'react-native-tiny-toast'
 
 export default class LoginFormLetter extends Component {
   constructor(props){
@@ -14,7 +15,8 @@ export default class LoginFormLetter extends Component {
 
 
 
-  async onFetchSubmit(){
+  async onFetchSubmit(toast){
+    toast = Toast.showLoading('Loading...')
     var data = {
         name: this.state.name,
         phoneNumber: this.state.phoneNumber
@@ -33,6 +35,8 @@ export default class LoginFormLetter extends Component {
     );
     if (response.status >= 200 && response.status < 300) {
            setTimeout( () => {
+            Toast.hide(toast)
+            Toast.show("הפרטים נקלטו בהצלחה, נציג מהסוכנות יצור קשר תוך 24 שעות")
             this.props.navigation.navigate('Home')
           },1000)
     }
@@ -43,12 +47,11 @@ export default class LoginFormLetter extends Component {
 
    validate (){
     if (this.state.name.length != 0 && this.state.phoneNumber.length != 0) {
-       ToastAndroid.show("Success", ToastAndroid.SHORT)
        return this.onFetchSubmit()
       } 
     else {
         Keyboard.dismiss();
-        ToastAndroid.show("Empty field, try again", ToastAndroid.SHORT)
+        Toast.show("Empty field, try again")
     }
 }
 

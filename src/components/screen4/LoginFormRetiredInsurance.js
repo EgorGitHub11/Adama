@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Button, Linking, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Image, ToastAndroid, Keyboard} from 'react-native';
+import Toast from 'react-native-tiny-toast'
 
 export default class LoginFormRetiredInsurance extends Component {
   constructor(props) {
@@ -23,7 +24,8 @@ export default class LoginFormRetiredInsurance extends Component {
    )
   }
 
-     async onFetchLoginRecords(){
+     async onFetchLoginRecords(toast){
+      toast = Toast.showLoading('Loading...')
       var data = {
       name: this.state.name,
       surname: this.state.surname,
@@ -45,6 +47,8 @@ export default class LoginFormRetiredInsurance extends Component {
       );
       if (response.status >= 200 && response.status < 300) {
           setTimeout( () => {
+            Toast.hide(toast)
+            this.props.navigation.navigate('Home')
             this.signInLink()
           },1000)
       }
@@ -57,12 +61,11 @@ export default class LoginFormRetiredInsurance extends Component {
      validate (){
       //include your validation inside if condition
       if (this.state.name.length != 0 && this.state.phoneNumber.length != 0, this.state.passportId.length != 0, this.state.dateIssue.length != 0, this.state.surname.length != 0) {
-         ToastAndroid.show("Success", ToastAndroid.SHORT)
          return this.onFetchLoginRecords()
         } 
       else {
           Keyboard.dismiss();
-          ToastAndroid.show("Empty field, try again", ToastAndroid.SHORT)
+          Toast.show("Empty field, try again")
       }
   }
 
