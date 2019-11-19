@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import {h,w} from '../../constants'
-import Header from '../uikit/Header'
+import HeaderBack from '../uikit/HeaderBack'
 
-const AboutInformation = () => {
+const AboutInformation = (props) => {
     const { text,container,textBlock } = styles
     return (
       <View style={container}>
-        <Header/>
+        <HeaderBack navigation={props.navigation}/>
         <ScrollView>
         <View style={textBlock}>
           <Text style={text}>
@@ -26,15 +26,15 @@ const AboutInformation = () => {
 const styles = StyleSheet.create({
   text:{
     fontSize: 25,
+    textAlign: 'center'
   },
   container:{
     flex:1, 
     backgroundColor: '#fff',
   },
   textBlock:{
-    margin: 25,
+    padding: 10,
     backgroundColor: '#fff',
-    alignItems: 'center',
   }
 });
 

@@ -39,7 +39,7 @@ export default class LoginFormCheckInsuranceProfile extends Component {
     if (response.status >= 200 && response.status < 300) {
            setTimeout( () => {
             Toast.hide(toast)
-            Toast.show("הפרטים נקלטו בהצלחה, נציג מהסוכנות יצור קשר תוך 24 שעות")
+            Toast.showSuccess("הפרטים נקלטו בהצלחה, נציג מהסוכנות יצור קשר תוך 24 שעות")
              this.props.navigation.navigate('Home')
           },1000)
     }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Linking, Image, ImageBackground} from 'react-native';
 import {h,w} from '../../constants'
-import Header from '../uikit/Header' 
+import HeaderBack from '../uikit/HeaderBack' 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 const myIcon = <Icon name="play-circle-filled" size={70} color="#fff" />;
 
@@ -51,7 +51,7 @@ open4Video = (url) => {
     const {textBlock, text, container, videoContainer, textVideoLink, iconTextCintainer} = styles
     return (
       <View style={container}>
-        <Header/>
+        <HeaderBack navigation={this.props.navigation}/>
         <ScrollView>
         <View style={textBlock}>
           <Text style={text}>
@@ -101,13 +101,14 @@ open4Video = (url) => {
 
 const styles = StyleSheet.create({
   textBlock:{
-    margin: 25,
+    margin: 10,
     backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
   },
   text:{
     fontSize: 20,
+    textAlign: 'center'
   },
   container:{
     flex:1, 

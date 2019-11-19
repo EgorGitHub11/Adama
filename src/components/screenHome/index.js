@@ -11,6 +11,7 @@ import RetiredInsuranceForm from '../screen4/LoginRetiredInsurance'
 import AboutInformation from '../screen3/AboutInformation'
 import TestOneYearInf from '../screen1/TestOneYear'
 import LetterForm from '../screen7/Login_Letter'
+import HomeBack from '../uikit/HeaderBack'
 
 
 export default class Index extends React.Component {

@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet,Image} from 'react-native';
+import { View, Text, StyleSheet,Image, TouchableOpacity} from 'react-native';
 import LoginFormLetter from './LoginForm_Letter'
 import {h,w} from '../../constants'
+
+import Icon from 'react-native-vector-icons/MaterialIcons';
+const myIcon = <Icon name="arrow-back" size={35} color="#528156" />;
 
 const LoginLetter = (props) => {
     const {container,logoContainer,formContainer,logo} = styles
     return (
         <View style={container}>
         <View style={logoContainer}>
+        <TouchableOpacity onPress = {() => props.navigation.navigate('Home')}>
+            <View style={styles.icon}>{myIcon}</View>
+            </TouchableOpacity>
           <Image style={logo} source={require('../../logo/Logo.png')}/>
         </View>
         <View style={formContainer}>
@@ -43,7 +49,15 @@ const styles = StyleSheet.create({
       flex: 4,
       backgroundColor: '#fff',
       justifyContent: 'center',
-    }
+    },
+    icon:{
+      width: w,
+      paddingLeft: 10,
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+  }
 });
 
 export default LoginLetter
