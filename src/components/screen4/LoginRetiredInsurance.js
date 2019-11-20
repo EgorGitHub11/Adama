@@ -2,27 +2,16 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {h,w} from '../../constants'
 import LoginForm from './LoginFormRetiredInsurance'
-import Header from '../uikit/Header'
+import HeaderBack from '../uikit/HeaderBack'
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 const myIcon = <Icon name="arrow-back" size={35} color="#528156" />;
 
 const Login = (props) => {
-    const {container,formContainer,logo,logoContainer,logoC} = styles
+    const {container,formContainer} = styles
     return (
        <View style={container}>
-         <View style={logoContainer}>
-
-         <TouchableOpacity onPress = {() => props.navigation.navigate('Home')}>
-            <View style={styles.icon}>{myIcon}</View>
-          </TouchableOpacity>
-
-          <View style={logoC}>
-           <Image style={logo} source={require('../../logo/Logo.png')}/>
-          </View>
-
-         </View>
-
+         <HeaderBack navigation={props.navigation}/>
           <View style={formContainer}>
             <LoginForm navigation={props.navigation}/> 
           </View>
@@ -52,20 +41,21 @@ const styles = StyleSheet.create({
       resizeMode: 'contain',
     },
     formContainer:{
-      flex:3,
+      flex:2,
       backgroundColor: '#fff',
       justifyContent: 'center',
     },
     icon:{
       width: w,
+      paddingTop: 10,
       paddingLeft: 10,
+      paddingBottom: 10,
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'flex-start',
-      alignItems: 'center',
   },
   logoC:{
-    width: w / 2,
+      width: w / 2,
       height: h/9,
       justifyContent: 'center',
       alignItems: 'center',

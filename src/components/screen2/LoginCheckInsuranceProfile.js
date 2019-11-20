@@ -2,28 +2,17 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {h,w} from '../../constants'
 import LoginForm from './LoginFormCheckInsuranceProfile'
+import HeaderBack from '../uikit/HeaderBack'
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 const myIcon = <Icon name="arrow-back" size={35} color="#528156" />;
 
 
 const Login = (props) => {
-    const {container,logoContainer,formContainer,logo, logoC} = styles
+    const {container,formContainer} = styles
     return (
       <View style={container}>
-          <View style={logoContainer}>
-
-          <TouchableOpacity onPress = {() => props.navigation.navigate('Home')}>
-            <View style={styles.icon}>{myIcon}</View>
-          </TouchableOpacity>
-
-
-            <View style={logoC}>
-            <Image style={logo} source={require('../../logo/Logo.png')}/>
-            </View>
-
-          </View>
-
+          <HeaderBack navigation={props.navigation}/>
           <View style={formContainer}>
             <LoginForm navigation={props.navigation}/> 
           </View>
