@@ -82,7 +82,7 @@ export default class LoginFormCheckInsuranceProfile extends Component {
           style={input}/>
 
           <TextInput 
-          placeholder='מספר טלפו'
+          placeholder='מספר טלפון'
           onChangeText={text => this.setState({ phoneNumber: text })}
           ref={(input) => this.phoneInput = input}
           style={input}/>

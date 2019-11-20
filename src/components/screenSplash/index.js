@@ -21,6 +21,7 @@ export default class index extends Component {
 }
 
 
+
 const InitialNavigator = createSwitchNavigator(
     {
       Splash:{screen:SplashScreen},

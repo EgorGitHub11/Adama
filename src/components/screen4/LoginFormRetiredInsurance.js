@@ -59,7 +59,6 @@ export default class LoginFormRetiredInsurance extends Component {
      }
 
      validate (){
-      //include your validation inside if condition
       if (this.state.name.length != 0 && this.state.phoneNumber.length != 0, this.state.passportId.length != 0, this.state.dateIssue.length != 0, this.state.surname.length != 0) {
          return this.onFetchLoginRecords()
         } 
@@ -73,7 +72,7 @@ export default class LoginFormRetiredInsurance extends Component {
     const {input, container, buttonContainer, buttonText, title} = styles
     return (
       <KeyboardAvoidingView behavior="padding" style={container}>
-        <Text style={title}>ל מנת להמשיך את התהליך יש להזין:</Text>
+        <Text style={title}>על מנת להמשיך את התהליך יש להזין:</Text>
         <ScrollView>
           <TextInput 
           placeholder='שם פרטי'
