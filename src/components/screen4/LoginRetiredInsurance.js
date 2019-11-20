@@ -8,15 +8,21 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 const myIcon = <Icon name="arrow-back" size={35} color="#528156" />;
 
 const Login = (props) => {
-    const {container,formContainer,logo, logoC} = styles
+    const {container,formContainer,logo,logoContainer,logoC} = styles
     return (
        <View style={container}>
-         <View style={logoC}>
+         <View style={logoContainer}>
+
          <TouchableOpacity onPress = {() => props.navigation.navigate('Home')}>
             <View style={styles.icon}>{myIcon}</View>
-            </TouchableOpacity>
+          </TouchableOpacity>
+
+          <View style={logoC}>
            <Image style={logo} source={require('../../logo/Logo.png')}/>
+          </View>
+
          </View>
+
           <View style={formContainer}>
             <LoginForm navigation={props.navigation}/> 
           </View>
@@ -29,8 +35,8 @@ const styles = StyleSheet.create({
         flex:1,
         backgroundColor: '#fff'
     },
-    logoC:{
-      flex:2,
+    logoContainer:{
+      flex:1,
       backgroundColor:'#fff',
       alignItems: 'center',
       justifyContent:'center',
@@ -41,23 +47,30 @@ const styles = StyleSheet.create({
       elevation: 7
     },
     logo:{
-      width: w,
-      height: h / 7,
+      width:'100%',
+      height: '100%',
       resizeMode: 'contain',
-      margin: 'auto',
     },
     formContainer:{
-      flex: 4,
+      flex:3,
       backgroundColor: '#fff',
       justifyContent: 'center',
-    },icon:{
+    },
+    icon:{
       width: w,
       paddingLeft: 10,
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'flex-start',
       alignItems: 'center',
-  }
+  },
+  logoC:{
+    width: w / 2,
+      height: h/9,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom: 5,
+}
 });
 
 export default Login

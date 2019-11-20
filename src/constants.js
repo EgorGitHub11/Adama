@@ -1,5 +1,6 @@
 import {Dimensions, Linking} from 'react-native'
 import call from 'react-native-phone-call'
+import Toast from 'react-native-tiny-toast'
 
 const win = Dimensions.get('window')
 export const h = win.height
@@ -13,6 +14,7 @@ export const openWhatsApp = (url,celNumber,playMarketUrl) => {
       if (supported) {
           Linking.openURL(url);
       } else {
+        Toast.show('WhatsApp is not installed!')
         Linking.openURL(playMarketUrl);
       }
   });

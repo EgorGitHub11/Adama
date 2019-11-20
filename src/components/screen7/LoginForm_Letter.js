@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Button, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, ActivityIndicator,Keyboard} from 'react-native';
+import { View, Button, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, ActivityIndicator,Keyboard, } from 'react-native';
 import Toast from 'react-native-tiny-toast'
+import * as yup from 'yup'
 
 export default class LoginFormLetter extends Component {
   constructor(props){
@@ -9,12 +10,12 @@ export default class LoginFormLetter extends Component {
     this.validate = this.validate.bind(this)
     this.state={
       name: "",
+      nameValidate: true,
       phoneNumber: "",
     }
   }
 
-
-  async onFetchSubmit(toast){
+  async onFetchSubmit(){
     toast = Toast.showLoading('Loading...')
     var data = {
         name: this.state.name,
@@ -44,9 +45,11 @@ export default class LoginFormLetter extends Component {
       } 
    }
 
+
+
    validate (){
     if (this.state.name.length != 0 && this.state.phoneNumber.length != 0) {
-       return this.onFetchSubmit()
+        this.onFetchSubmit()
       } 
     else {
         Keyboard.dismiss();
@@ -54,15 +57,17 @@ export default class LoginFormLetter extends Component {
     }
 }
 
+ 
   render() {
-    const {input, container, buttonContainer, buttonText, title} = styles
+    const {input, container, buttonContainer, buttonText, title, error} = styles
     return (
       <KeyboardAvoidingView behavior="padding" style={container}>
         <ScrollView>
           <TextInput 
           placeholder='שם'
           onChangeText={text => this.setState({ name: text })}
-          style={input}/>
+          style={input}/> 
+          {/* style={[input, !this.state.nameValidate ? error : null]} */}
 
           <TextInput 
          onChangeText={text => this.setState({ phoneNumber: text })}
@@ -115,5 +120,5 @@ const styles = StyleSheet.create({
       fontSize: 20,
       color: '#528156',
       marginLeft: 20,
-    }
+    },
 });
