@@ -5,20 +5,17 @@ import Toast from 'react-native-tiny-toast'
 export default class LoginFormCheckInsuranceProfile extends Component {
   constructor(props){
     super(props)
-    this.onFetchCheck = this.onFetchCheck.bind(this)
-    this.validate = this.validate.bind(this)
     this.state={
       passportId: "",
       dateIssue: "",
       phoneNumber: "",
+      onFetchCheck: ""
     }
   }
    
-
-  
-  
-  async onFetchCheck(toast){
-    toast = Toast.showLoading('Loading...')
+  componentDidMount(){
+    this.onFetchCheck = async (toast) => {
+    toast = Toast.showLoading('שולח...')
     var data = {
         passportId: this.state.passportId,
         dateIssue: this.state.dateIssue,
@@ -47,17 +44,19 @@ export default class LoginFormCheckInsuranceProfile extends Component {
         alert(errors);
       } 
    }
+  }
 
-   validate (){
-    //include your validation inside if condition
+
+  validate = () => {
     if (this.state.passportId.length != 0 && this.state.dateIssue.length != 0, this.state.phoneNumber.length != 0) {
        return this.onFetchCheck()
       } 
     else {
         Keyboard.dismiss();
-        Toast.show("Empty field, try again")
+        Toast.show("נא למלא את כל השדות")
     }
 }
+
 
   render() {
     const {input, container, buttonContainer, buttonText, title} = styles

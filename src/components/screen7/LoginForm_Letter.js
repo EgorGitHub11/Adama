@@ -6,54 +6,54 @@ import * as yup from 'yup'
 export default class LoginFormLetter extends Component {
   constructor(props){
     super(props)
-    this.onFetchSubmit = this.onFetchSubmit.bind(this)
-    this.validate = this.validate.bind(this)
     this.state={
       name: "",
       nameValidate: true,
       phoneNumber: "",
+      onFetchSubmit: ""
     }
   }
 
-  async onFetchSubmit(){
-    toast = Toast.showLoading('Loading...')
-    var data = {
-        name: this.state.name,
-        phoneNumber: this.state.phoneNumber
-    };
-    try {
-        let response = await fetch(
-            "https://appadama.herokuapp.com/letter",
-              {
-                method: "POST",
-              headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-              }, 
-              body: JSON.stringify(data)
-              }
-    );
-    if (response.status >= 200 && response.status < 300) {
-           setTimeout( () => {
-            Toast.hide(toast)
-            Toast.showSuccess("הפרטים נקלטו בהצלחה, נציג מהסוכנות יצור קשר תוך 24 שעות")
-            this.props.navigation.navigate('Home')
-          },1000)
-    }
-    } catch (errors) {
-        alert(errors);
-      } 
-   }
+  componentDidMount(){
+    this.onFetchSubmit = async(toast) => {
+      toast = Toast.showLoading('שולח...')
+      var data = {
+          name: this.state.name,
+          phoneNumber: this.state.phoneNumber
+      };
+      try {
+          let response = await fetch(
+              "https://appadama.herokuapp.com/letter",
+                {
+                  method: "POST",
+                headers: {
+                  "Accept": "application/json",
+                  "Content-Type": "application/json"
+                }, 
+                body: JSON.stringify(data)
+                }
+      );
+      if (response.status >= 200 && response.status < 300) {
+             setTimeout( () => {
+              Toast.hide(toast)
+              Toast.showSuccess("הפרטים נקלטו בהצלחה, נציג מהסוכנות יצור קשר תוך 24 שעות")
+              this.props.navigation.navigate('Home')
+            },1000)
+      }
+      } catch (errors) {
+          alert(errors);
+        } 
+     }
+  }
 
 
-
-   validate (){
+   validate = () => {
     if (this.state.name.length != 0 && this.state.phoneNumber.length != 0) {
         this.onFetchSubmit()
       } 
     else {
         Keyboard.dismiss();
-        Toast.show("Empty field, try again")
+        Toast.show("נא למלא את כל השדות")
     }
 }
 

@@ -14,7 +14,7 @@ export const openWhatsApp = (url,celNumber,playMarketUrl) => {
       if (supported) {
           Linking.openURL(url);
       } else {
-        Toast.show('WhatsApp is not installed!')
+        Toast.show('במכשיר זה לא מותקן וואטסאפ')
         Linking.openURL(playMarketUrl);
       }
   });

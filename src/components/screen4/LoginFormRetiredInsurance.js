@@ -5,15 +5,14 @@ import Toast from 'react-native-tiny-toast'
 export default class LoginFormRetiredInsurance extends Component {
   constructor(props) {
     super(props)
-    this.onFetchLoginRecords = this.onFetchLoginRecords.bind(this)
     this.signInLink = this.signInLink.bind(this)
-    this.validate = this.validate.bind(this)
     this.state = {
        name: "",
        surname: "",
        passportId: "",
        dateIssue: "",
-       phoneNumber: ""
+       phoneNumber: "",
+       onFetchLoginRecords: "",
     };
   };
 
@@ -24,8 +23,9 @@ export default class LoginFormRetiredInsurance extends Component {
    )
   }
 
-     async onFetchLoginRecords(toast){
-      toast = Toast.showLoading('Loading...')
+  componentDidMount(){
+     this.onFetchLoginRecords = async (toast) => {
+      toast = Toast.showLoading('שולח...')
       var data = {
       name: this.state.name,
       surname: this.state.surname,
@@ -57,16 +57,17 @@ export default class LoginFormRetiredInsurance extends Component {
       alert(errors);
       } 
      }
-
-     validate (){
-      if (this.state.name.length != 0 && this.state.phoneNumber.length != 0, this.state.passportId.length != 0, this.state.dateIssue.length != 0, this.state.surname.length != 0) {
-         return this.onFetchLoginRecords()
-        } 
-      else {
-          Keyboard.dismiss();
-          Toast.show("Empty field, try again")
-      }
   }
+
+  validate = () => {
+    if (this.state.name.length != 0 && this.state.phoneNumber.length != 0, this.state.passportId.length != 0, this.state.dateIssue.length != 0, this.state.surname.length != 0) {
+       return this.onFetchLoginRecords()
+      } 
+    else {
+        Keyboard.dismiss();
+        Toast.show("נא למלא את כל השדות")
+    }
+}
 
   render() {
     const {input, container, buttonContainer, buttonText, title} = styles
