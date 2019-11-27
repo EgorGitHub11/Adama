@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
 },
 text:{
   textAlign: 'center',
-  fontSize: 18,
+  fontSize: w / 25,
 },
 icon:{
   marginBottom: 20

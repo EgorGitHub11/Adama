@@ -67,7 +67,6 @@ export default class LoginFormLetter extends Component {
           placeholder='שם'
           onChangeText={text => this.setState({ name: text })}
           style={input}/> 
-          {/* style={[input, !this.state.nameValidate ? error : null]} */}
 
           <TextInput 
          onChangeText={text => this.setState({ phoneNumber: text })}
